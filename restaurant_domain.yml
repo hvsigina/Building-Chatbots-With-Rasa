@@ -1,0 +1,119 @@
+slots:
+  location:
+    type: text
+  cuisine:
+    type: text
+  price:
+    type: text
+  email:
+    type: text
+  matches:
+    type: text
+  location_type:
+    type: bool
+  noresults:
+    type: bool
+  cuisine_type:
+    type: bool
+
+entities:
+- location
+- cuisine
+- price
+- email
+- matches
+- location_type
+- cuisine_type
+- noresults
+
+intents:
+ - greet
+ - affirm
+ - deny
+ - goodbye
+ - thankyou
+ - restaurant_search
+ - send_mail
+ - user_ask
+ - about_yourself
+ - profane
+ - chitchat
+
+templates:
+  utter_greet:
+    - "hey there! How may i help you"
+    - "Hi, How can I help you!"
+    - "Hey, How is it going. How May I help you Today"
+  utter_goodbye:
+    - "goodbye :("
+    - "Bye-bye"
+  utter_default:
+    - "default message"
+  utter_ask_cuisine: 
+    - text: "what kind of cuisine would you prefer?"
+      buttons:
+      - title: "Chinese"
+        payload: "Chinese"
+      - title: "Italian"
+        payload: "Italian"
+      - title: "South Indian"
+        payload: "South Indian"
+      - title: "North Indian"
+        payload: "North Indian"
+      - title: "American"
+        payload: "American"
+      - title: "Mexican"
+        payload: "Mexican"
+  utter_ask_price:
+    - text: "What price range are you looking for?"
+      buttons:
+      - title: "Lesser Rs. 300"
+        payload: "cheap"
+      - title: "Rs. 300 to 700"
+        payload: "moderate"
+      - title: "More than Rs. 700"
+        payload: "expensive"
+  utter_ask_howcanhelp:
+    - "how can I help you?"
+  utter_ask_location:
+    - "In which city are you looking for restaurants?"
+  utter_ask_ifmail: 
+    - "Do you want list of top restaurants on your email address?"
+  utter_ask_mail:
+    - "please share your email address"
+  utter_deny:
+    - "Sorry, We do not operate in this area yet."
+    - "Unfortunately, we do not operate in this area yet."
+  utter_userask:
+    - " I am Foodie. I can help you search for restaurants in India."
+    - " I am Foodie. I am here to help you find out restaurants in indian cities."
+  utter_aboutyourself:
+    - " I am Foodie. I can help you search for restaurants in Indian cities."
+  utter_profane:
+    - "sorry ,i cant help you with this."
+  utter_chitchat:
+    - "i am good. Are you feeling hungry?. I can find you a restaurant nearby" 
+  utter_noresults:
+    - "are you feeling hungry?"
+actions:
+- utter_greet
+- utter_goodbye
+- utter_default
+- utter_ask_howcanhelp
+- utter_ask_location
+- utter_ask_cuisine
+- utter_ask_price
+- actions.ActionHotel
+- actions.ActionSendMail
+- utter_ask_ifmail
+- actions.ActionReset
+- actions.ActionRestarted
+- utter_ask_mail
+- utter_deny
+- utter_userask
+- utter_aboutyourself
+- actions.ActionSearchCity
+- actions.ActionCheckCuisine
+- utter_chitchat
+- utter_profane
+- utter_noresults
