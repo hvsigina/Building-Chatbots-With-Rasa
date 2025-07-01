@@ -130,4 +130,69 @@ In this project, you will build a chatbot for ‘Foodie’ and then deploy it on
 
     Creating more stories: Use train_online.py file to create more stories. Refer to the sample conversational stories provided above.  Your bot will be evaluated on something similar to the test stories shared.
 
+# Foodie(FoodBot)
+This platform helps user to get information about the restaurants .They can even customize their restaurant search basis on location and cuisine
+
+# Features!
+  - can understand intention of end user.
+  - provides list of restaurant on the basis of your query.
+  - can send email containing your query result.
+  - can detect city names, or work for indian pincodes
+
+### Technicalitis ( RUN AS ADMINISTRATOR )
+The FoodBot consists of the following files:
+- data/stories.md contains training stories for the Core model
+- data/data.json contains training data for NLU model
+- actions.py contains some custom actions
+- config_spacy.json contains the model configuration
+- restaurant_domain.yml contains the domain of the bot
+- foodie.py script works as a bridge between zomato API and our FoodBot
+- sendmail.py script used to send email to user if user wants to get top restaurants list on mail address
+- soundex.py is used to detect mis-spelled city names ,if any.
+- sound_ex_data.py is to generate SoundEx code for cites stored in settings.py
+- rasa_slack_connector.py contains blueprint for slack connection with bot.
+- run_app.py contains authentication credentials for slack.
+
+### Installation And Usage
+
+For easy usage and understanding we have created an virtual envoirnment that has all required libraries and functions.
+1. Install virtual envoirnment if you dont have using:
+  ```sh
+$ sudo easy_install pip
+$ sudo pip install virtualenv
+$ virtualenv venv -p python3.6
+$ source venv/bin/activate
+$ pip install -r requirements.txt
+```
+
+### Training of the model
+2. To Train core model , use
+  ```sh
+$ python dialogue_management_model.py
+```
+3. To train nlu model , run
+  ```sh
+$ python nlu_model.py
+
+### How to run bot on Command prompt
+To run FoodBot on CLI,
+  ```sh
+$ python run_console.py
+
+```
+
+
+### how to run bot on slack
+For slack connection, have to write slack authentication credentials and rasa(Core+NLU) in
+  ```sh
+$ run_app.py
+```
+
+After connection established, use ngrok for temporary public URL.
+  ```sh
+$ ngrok http < same port number used in run_app.py>
+```
+
+
+
 
